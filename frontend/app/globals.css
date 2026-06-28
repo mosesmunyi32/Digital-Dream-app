@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+
+/* #FFF5E5 */
+/* #B3C7F0; */
+
+@theme {
+  /* --- Brand blue scale (light → dark) --- */
+  --color-brand-50:  #FFF5E5;
+  --color-brand-200: #B3C7F0;  
+  --color-brand-300: #7FA0E5;
+  --color-brand-400: #507ADC;
+  --color-brand-600: #1E4CD2;
+  --color-brand-800: #0A2A92;
+  --color-brand-950: #02114B;
+
+  /* --- Semantic roles (what each color is FOR) --- */
+  --color-background:    #E8EEFA; /* page base                 */
+  --color-foreground:    #02114B; /* primary text (navy)       */
+  --color-primary:       #16A34A; /* ACTION green — buy cues   */
+  --color-primary-hover: #15803D; /* action green, darker      */
+  --color-on-primary:    #FFFFFF; /* text on action buttons    */
+
+  /* --- Fonts --- */
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ============================================================
+   PAGE BACKGROUND
+   Radial "spotlight": light glow in the center → blue at corners.
+   ============================================================ */
+body {
+  min-height: 100vh;
+  color: var(--color-foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  background: radial-gradient(
+    circle at center,
+    var(--color-brand-50) 0%,    /* center: lightest blue */
+    var(--color-brand-200) 100%  /* corners: deeper blue  */
+  );
+  background-attachment: fixed;  /* gradient stays put when scrolling */
+}
+
+/* Smooth scrolling for the in-page nav links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keep anchored sections clear of the sticky navbar */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Attention pulse for the floating WhatsApp button */
+@keyframes ddpulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+.animate-wa {
+  animation: ddpulse 2.5s infinite;
+}
