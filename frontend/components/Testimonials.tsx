@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const testimonials = [
   {
     quote:
@@ -19,23 +21,24 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="mx-auto w-full max-w-7xl px-6 py-16 sm:px-10">
-      <h2 className="text-center text-3xl font-extrabold text-brand-950 sm:text-4xl">
-        Loved by gift-givers
-      </h2>
+      <Reveal>
+        <h2 className="text-center text-3xl font-extrabold text-brand-950 sm:text-4xl">
+          Loved by gift-givers
+        </h2>
+      </Reveal>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
-        {testimonials.map((t) => (
-          <figure
-            key={t.name}
-            className="rounded-3xl bg-white/60 p-7 shadow-md ring-1 ring-white/60"
-          >
-            <div className="text-brand-400">★★★★★</div>
-            <blockquote className="mt-3 text-brand-950">
-              “{t.quote}”
-            </blockquote>
-            <figcaption className="mt-4 text-sm font-semibold text-brand-800">
-              — {t.name}
-            </figcaption>
-          </figure>
+        {testimonials.map((t, i) => (
+          <Reveal key={t.name} delay={i * 90} className="h-full">
+            <figure className="h-full rounded-3xl bg-white/60 p-7 shadow-md ring-1 ring-white/60">
+              <div className="text-brand-400">★★★★★</div>
+              <blockquote className="mt-3 text-brand-950">
+                “{t.quote}”
+              </blockquote>
+              <figcaption className="mt-4 text-sm font-semibold text-brand-800">
+                — {t.name}
+              </figcaption>
+            </figure>
+          </Reveal>
         ))}
       </div>
     </section>

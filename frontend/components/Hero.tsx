@@ -2,13 +2,14 @@ import Link from "next/link";
 import Button from "./Button";
 import BuyButton from "./BuyButton";
 import MediaFrame from "./MediaFrame";
+import Reveal from "./Reveal";
 import { site, variants } from "@/lib/site";
 
 export default function Hero() {
   return (
     <section className="mx-auto flex w-full max-w-7xl flex-col items-center gap-12 px-6 py-12 sm:px-10 md:flex-row md:gap-8 md:py-20">
       {/* Left column: headline + value prop + CTA */}
-      <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
+      <Reveal className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
         <span className="rounded-full bg-brand-200 px-4 py-1 text-sm font-semibold text-brand-800">
           Gift a friend or yourself 🎁
         </span>
@@ -42,15 +43,15 @@ export default function Hero() {
         <p className="mt-4 text-sm text-brand-800">
           💬 Tap to order — we usually reply within minutes.
         </p>
-      </div>
+      </Reveal>
 
       {/* Right column: the product showcase frame (primary video) */}
-      <div className="flex flex-1 items-center justify-center">
+      <Reveal delay={150} className="flex flex-1 items-center justify-center">
         <MediaFrame
           videoSrc="/media/primary.mp4"
           alt="Digital photo album in action"
         />
-      </div>
+      </Reveal>
     </section>
   );
 }

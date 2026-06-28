@@ -30,7 +30,7 @@ export default function MediaFrame({
         <div
           className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-200 via-brand-400 to-brand-800 ${
             videoSrc
-              ? "aspect-video w-72 sm:w-80 md:w-[28rem]"
+              ? "aspect-video w-80 sm:w-[28rem] md:w-[34rem] lg:w-[38rem]"
               : "aspect-[3/4] w-64 sm:w-72 md:w-80"
           }`}
         >

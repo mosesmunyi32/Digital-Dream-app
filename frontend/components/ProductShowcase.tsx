@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const shots = [
   { src: "/media/product-1.png", caption: "Crystal acrylic frame" },
   { src: "/media/product-2.png", caption: "Premium build, gift-ready" },
@@ -15,7 +17,7 @@ export default function ProductShowcase() {
     <section className="mx-auto w-full max-w-7xl px-6 py-16 sm:px-10">
       <div className="grid items-center gap-10 md:grid-cols-2">
         {/* Copy */}
-        <div>
+        <Reveal>
           <h2 className="text-3xl font-extrabold text-brand-950 sm:text-4xl">
             Crafted to be admired
           </h2>
@@ -32,27 +34,26 @@ export default function ProductShowcase() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
 
         {/* Product images */}
         <div className="grid grid-cols-2 gap-4">
-          {shots.map((s) => (
-            <figure
-              key={s.src}
-              className="overflow-hidden rounded-2xl bg-white p-2 shadow-md ring-1 ring-brand-200"
-            >
-              <div className="aspect-square w-full overflow-hidden rounded-xl bg-white">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={s.src}
-                  alt={s.caption}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <figcaption className="px-1 pt-2 text-center text-xs font-medium text-brand-800">
-                {s.caption}
-              </figcaption>
-            </figure>
+          {shots.map((s, i) => (
+            <Reveal key={s.src} delay={i * 120}>
+              <figure className="overflow-hidden rounded-2xl bg-white p-2 shadow-md ring-1 ring-brand-200">
+                <div className="aspect-square w-full overflow-hidden rounded-xl bg-white">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={s.src}
+                    alt={s.caption}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+                <figcaption className="px-1 pt-2 text-center text-xs font-medium text-brand-800">
+                  {s.caption}
+                </figcaption>
+              </figure>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -9,6 +9,7 @@ import FAQ from "@/components/FAQ";
 import CTASection from "@/components/CTASection";
 import BuyButton from "@/components/BuyButton";
 import MediaFrame from "@/components/MediaFrame";
+import Reveal from "@/components/Reveal";
 import JsonLd from "@/components/JsonLd";
 import {
   occasions,
@@ -55,7 +56,7 @@ export default async function OccasionPage({ params }: Props) {
 
       {/* Hero for this occasion */}
       <section className="mx-auto flex w-full max-w-7xl flex-col items-center gap-12 px-6 py-12 sm:px-10 md:flex-row md:py-20">
-        <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
+        <Reveal className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
           <Link
             href="/#gift-ideas"
             className="text-sm font-semibold text-primary hover:underline"
@@ -89,11 +90,11 @@ export default async function OccasionPage({ params }: Props) {
               Buy on WhatsApp
             </BuyButton>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="flex flex-1 items-center justify-center">
+        <Reveal delay={150} className="flex flex-1 items-center justify-center">
           <MediaFrame imageSrc={o.image} alt={o.keyword} showPlay={false} />
-        </div>
+        </Reveal>
       </section>
 
       <TrustBar />

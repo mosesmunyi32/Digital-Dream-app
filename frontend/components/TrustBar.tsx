@@ -1,9 +1,10 @@
+import Reveal from "./Reveal";
 import { trustSignals } from "@/lib/site";
 
 export default function TrustBar() {
   return (
     <div className="border-y border-brand-200 bg-white/50">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-6 py-5 sm:grid-cols-4 sm:px-10">
+      <Reveal className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-6 py-5 sm:grid-cols-4 sm:px-10">
         {trustSignals.map((t) => (
           <div
             key={t.label}
@@ -13,7 +14,7 @@ export default function TrustBar() {
             <span>{t.label}</span>
           </div>
         ))}
-      </div>
+      </Reveal>
     </div>
   );
 }
